@@ -9,6 +9,194 @@
 <h1>George Brown Portfolio WDD 330</h1>
 <h2>Week 2</h2>
 
+<h3>Notes from Reading<h3>
+
+<h4> Notes for Chapter 2 </h4>
+
+	<p>Remember NaN for not a number (similar to isalpha)
+
+Reserved Words: <br>
+ <br>
+abstract, await, boolean, break, byte, case, catch, char,
+class, const, continue, debugger, default, delete, do,
+double, else, enum, export, extends, false, final, finally,
+float, for, function, goto, if, implements, import, in,
+instanceof, int, interface, let, long, native, new, null,
+package, private, protected, public, return, short, static,
+super, switch, synchronized, this, throw, throws, transient,
+true, try, typeof, var, volatile, void, while, with, yield
+ <br> <br>
+Primitive Data types: Symbol -- Check symbol in Chapter 5
+ <br> <br>
+Const and Let instead of Var -- Looks like Var has scope in a function while let only in a block. <br>
+Syntax allows declaring variables in one line, -- let x =3, y =4, z =5;
+ <br> <br>
+JavaScript object-- Looks like JSON, are these the same thing <br>
+ <br> <br>
+Camel case ... (name for starting with lowercase and capitalizing first letter of new word) <br>
+ <br>
+concat function string.contcat(newstring, newstring); <br>
+ <br>
+trim-- removes whitespace before and after string. string.trim(); <br>
+ <br>
+Template Literals using "  `  " instead of quotes. -- use to insert JavaScript <br>
+ <br>
+Octal and Hexadecimal.. begin number with zero + code for base (x, o, b)  <br>
+ <br>
+toExponential to use Scientific notation. <br>
+ <br>
+1.7976931348623157e+308: largest number that can be dealt with in JS <br>
+ <br>
+checking if number can be used by using isFinite(number); <br>
+ <br>
+JavaScript is weakly typed.  Type coersion can cause trouble.  <br>
+Best to ensure strings and numbers are converted before they are compared. <br>
+ <br>
+Casting to different type: Number(s); String(n); <br>
+ <br>
+parseInt can move numbers/variables into a desired base. parseInt(variable, base); (removes decimal) <br>
+ <br>
+Undefined (has no value assigned) <br>
+ <br>
+NULL has the value of nothing (no value) <br>
+ <br>
+Boolean (not bool) <br>
+ <br>
+ <br>
+* "" // double quoted empty string literal <br>
+* '' // single quoted empty string literal <br>
+70 JavaScript: Novice to Ninja, 2nd Edition <br>
+* `` // empty template literal <br>
+* 0 <br>
+* -0 // considered different to 0 by JavaScript! <br>
+* NaN <br>
+* false <br>
+* null <br>
+* undefined <br>
+ <br>
+!NOT <br>
+&& AND <br>
+|| OR	 <br>
+Bitwise and is just & bitwise XOR as ^ OR as just one | <br>
+ <br>
+^is XOR, not exponent <br>
+ <br>
+<< >> multiplies and divides by powers of 2 <br>
+ <br>
+= -- sets answer <br>
+== -- soft equality (does not consider variable type) <br>
+=== -- hard equality (needs to be the same variable type/ignores type coercion) <br>
+same with not equals .. soft !=, hard !== <br>
+
+	</p>
+	
+<h4>Notes for Chapter 3</h4>
+
+	<p>
+	Array Literal -- declare with square brackets <br>
+const myArray = []; <br>
+Array Construction funcion: <br>
+const myArray = new Array();  <br>
+<br>
+const mixedArray = [ null, 1, [], 'two', true ]; -- Array is not limited to same type <br>
+Array can contain another array within. <br>
+<br>
+Deleting value within an array can leave empty space (undefined)<br>
+<br>
+Destructuring arrays example:<br>
+const [x,y] = [1,2];<br>
+<br>
+Destructuringcan be used to switch variable values without using another temp variable: <br>
+[x,y] = [y,x];<br>
+x<br>
+<< 2<br>
+y<br>
+<< 1<br>
+<br>
+Array.lenth gets lenght of arrays<br>
+
+pop -- removes last item and returns item<br>
+push -- appends new item as new last item in array<br>
+shift -- removes first item and returns item <br>
+unshift -- appends new item as new first item in array<br>
+<br>
+Merge arrays by using concat <br>
+This creates a new array,<br>
+<br>
+join() creates string seperated by commas (or other seperator passed as parameter)<br>
+<br>
+slice(begginingIndex, endingIndex)<br>
+splice(begginningIndex, numberToBeRemoved, newValue);<br>
+Using 0 in splice will not remove any existing values.<br>
+<br>
+reverse to reverse the array<br>
+sort() will sort alphabetically (including numbers) <br>
+<br>
+indexOf(valueToBeFound) will return -1 if not found or index of where value is found<br>
+<br>
+Multidimentional arrays: <br>
+<br>
+const array = [[],[]];<br>
+accessed array[index1][index2]<br>
+<br>
+Sets: <br>
+const newSet = new Set();<br>
+adding to set by using setName.add(value); <br>
+type coercion can mean sets may have 'duplicates' of strings and numbers (2 vs '2');<br>
+Methods for sets: <br>
+size()<br>
+has(value)<br>
+delete(value)<br>
+clear()<br>
+<br>
+Sets do not have indexes.<br>
+<br>
+Converting set to array:<br>
+const shoppingArray = [...shoppingSet] or const shoppingArray = Array.from(shoppingSet);<br>
+<br>
+Weak Sets: allows set to not retain an object in the set after object has been deleted;<br>
+<br>
+Maps: <br>
+declaring: const romanNumerals = new Map();<br>
+<br>
+Map Methods: <br>
+get(value)<br>
+has(value)<br>
+set(key, value)<br>
+size<br> 
+delete(key, value)<br>
+
+Maps can be converted into arrays (nested arrays) using array.from(mapName);<br>
+<br>
+Weak maps similar to weak sets.<br>
+
+Logic: <br>
+Ternary operator: condition ? (//code to run if condition is true) : (//code
+➥ to run if condition is false) <br>
+
+<br>
+Switches -- similar to c++<br>
+<br>
+Loops<br>
+While Loop :  while(condition) {}<br>
+do While Loop :  do {} while(condition)<br>
+For loop : for (initialization ; condition ; after) {}<br>
+<br>
+Looping over sets for(const setName of setName) {}<br>
+Looping over Maps for (const key of mapName.keys()) {}<br>
+or (const value of mapName.values()) {};<br>
+or access both with entries method for (const [key,value] of mapName.entries()) {};
+
+
+
+
+
+
+</p>
+
+
+
+
 
 </body>
 </html>
