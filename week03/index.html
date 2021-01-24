@@ -2,12 +2,210 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<script src="../js/main.js"></script>
+	<script src="main.js"></script>
 	<title>George Brown: WDD 330</title>
 </head>
-<body onload="loadIndex()">	
+<body>	
 <h1>George Brown Portfolio WDD 330</h1>
 <h2>Week 3</h2>
+<h3>Notes from Reading<h3>
+
+<h4> Notes for Javascript 'this' </h4>
+<p>
+The value of this is evaluated during the run-time, depending on the context.<br>
+The rule is simple: if obj.f() is called, then this is obj during the call of f <br>
+Strict vs Non Strict: Not-Strict will typically call <i>global objet</i> when this is undifined<br>
+Calling This inside a function, it expects go be called in an object context <br>
+<br>
+this is not "bound" in JS, bt "free". It is evaluated at call-time and does not reference the 
+method where it was called but the OBJECT BEFORE THE DOT.<br>
+ARROW FUNCTIONS HAVE NO 'this'<br>
+any this used in arrow functions would be from an outer function<br>
+This is useful when we want to take this from an outer context <br>
+<input type="button" onclick="example1()" value="example1"><br><br>
+<input type="button" onclick="calculator()" value="Run Calculator"><br><br>
+<h4> Notes on Chapter 5 </h4>
+<p>
+Declaring an object const objectname = {};<br>
+Also, const objectname = new Object();(not recommended)<br>
+<br>
+property key followed by : <br>
+{propertykey: value, otherkey: otherValue};<br>
+shortcut if VAR name is same as key name == { name1, name2 };<br>
+Access by objectName.valueName<br>
+Or objectName['valueName']<br>
+bracket notation can evaluate an expression: <br>
+example: superman["real" + " " + "name"] // the property is built using string concatenation
+<< "Clark Kent"<br>
+<br> non existing propery will return undefined<br>
+computed properties ["property" + "otherProperty"]: 'value'<br>
+<br>
+values can be a JavaScript expression example: <br>
+const bewitched = true;<br>
+const captainBritain = { name: 'Captain Britain', hero: bewitched ? false : true };<br>
+captainBritain<br>
+<< { name: 'Captain Britain', hero: false }<br>
+<br><br>
+Symbols can be used as a computed property key:<br>
+const name = Symbol('name');<br>
+const objectName = { [name]: 'value' };<br>
+useful when accessing square bracket notation.<br>
+<br>
+Sybmols used for property keys can be used by any other objects <br>
+Methods called by bracket or dot notation<br>
+<br> 
+Can check if property exists, 'property' in object;<br>
+or object.property !== undefined;<br>
+also use hasOwnProperty('name'); (does not include inherited properties)
+<br>
+<br>
+
+Iterate through object: <br>
+
+for(const key in objectName) {<br>
+	doSomething.... <br>
+} <br>
+Object.keys() will return the properties of an object As an array<br>
+also for Object.values()<br>
+object.entries() returns array of key value pairs< br>
+<br>
+Nested objects -- Object as value of other property<br>
+<br>
+OBJECTS ARE COPIED BY REFERENCE<br>
+<br>
+objects can be passed as function parameters<br>
+<input type="button" onclick="rolldie()" value="Roll the Die"><br><br>
+Namespacing:<br>
+By putting methods in object literals names can be associated with the object
+to reduce confusion within the same scope.<br>
+
+JSON<br>
+Basically an object as a string: <br>
+Property names must be double-quoted<br>
+Permitted values are double-quoted strings, numbers, true, false, null, arrays and objects<br>
+Functions are not permitted values <br>
+<br>
+JSON.parse(json) ==> turns into object<br>
+JSON.stringify(object) ===>turns into JSON<br>
+<br> methods are simply ignored in JSON<br>
+<br>
+Math Object<br>
+built in object with several constants,methods<br>
+
+<br>
+Date Object:<br>
+Object contains information about dates and times<br>
+<br>
+
+RegExp ... review<br>
+</p>
+
+<h4> Notes for Chapter 6 </h4>
+<p>
+What is DOM: <br>
+represents HTML document as a network of connected nodes<br>
+Built in object called "document".<br>
+
+
+<br>
+Types of attributes (among others):<br>
+element<br>
+attribute<br>
+text<br>
+comment<br>
+body<br>
+<br>
+use nodeName to find name of the element<br>
+getElementById(); <br>
+
+<br>
+getElementByTagName();<br>
+<br> 
+getElementByClassName();<br>
+<br>
+querySelector(); uses CSS to select the element<br>
+<br>
+Navigating the DOM tree <br>
+childNodes<br>
+gets all nodes that are children to selected node<br>
+parentNode<br>
+gets parent nodes<br>
+nextSibling --- returns next adjacent node or null if last node<br>
+previousSibling --- reterns previous node (or null)<br>
+<br>
+nodeValue  --- returns value of the node<<br>
+also textContent <br>
+<br>
+Getting and setting attributes:<br>
+getAttribute()<br>
+setAttribute()<br>
+class and for are reserved in javascript.. accessing with Dot notation use
+className and htmlFor <br>
+<br>
+Creating An Element<br>
+createElement('type');<br>
+appendChild(element); --adding to the page<br>
+insertBefore(new, existing); -- called on the parent node<br>
+Both methods can be used to move things around<br>
+removeChild(name) -- removes item<br>
+replaceChild(newText, oldText) -- replaces>
+<br>
+inner HTML --- review<br>
+scripts using innerHTML will not run items in script tags<br>
+<br>
+Live collections<br>
+will update as items are added and removed from the page<br>
+<br>
+Updating CSS .. CSS that uses dashes should be replaced with Camel Case<br>
+Use CSS display property to set to 'none' to hide/unhide items on the page<br>
+<br>
+getComputedStyle() returns style <br>
+<br>
+A better best practice would be to use pre-defined classes and manipulate classes<br>
+
+
+
+
+
+
+</p>
+<h4> Notes for Chapter 7 </h4>
+<p>
+Inline Event handlers: onclick="" <br>
+<br>
+Using Event Listener<br>
+document.body.addEventListener(event, doSomething);<br>
+if called without a node it will be applied to global object<br>
+Example: addEventListener('click', () => alert('You Clicked!'));<br>
+Events object: event.type will return type of event that happened<br>
+Event type: what the event is (click as an example)<br>
+Event target: a reference to the node taht fired the event<br>
+Coordinates: screenX and screenY properties show number of pixels from left and top of screen<br>
+pageX and pageY show in the document. this would consider if the page had been scrolled<br>
+<br>
+Types of events:<br>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Events">
+list of events from Mozilla</a>
+<br>
+Types of events: mouse events, keyboard events, touch events<br>
+<br>
+Removing event listener: removeEventListener()<br>
+(make sure anonymous functions are not assigned as they will be difficult to remove<br>
+<br>
+Stopping default behavior: preventDefault()<br>
+
+<br>
+Event Propagation.. a click will also be considered an event for elements that are nested<br>
+Bubbling -- Default behavior (nested item clicks first)<br>
+Capturing -- reverse of bubbling<br>
+adding event.stopPropagation() to callback function will stop bubbling phase<br>
+
+
+
+
+
+</p>
+
 
 
 </body>
