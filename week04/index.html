@@ -2,13 +2,400 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<script src="../js/main.js"></script>
+	
 	<title>George Brown: WDD 330</title>
+	<style>
+    .error{
+        background: #f99;
+        border: #900 1px solid;
+        display: none;
+    }
+	</style>
 </head>
-<body onload="loadIndex()">	
+<body>	
+
 <h1>George Brown Portfolio WDD 330</h1>
 <h2>Week 4</h2>
+<h4> Notes for Chapter 8</h4>
+<p>
+Forms used &ltfrom&gt Forms tag<br>
+Traditionally used to be sent to 'Back end' language like PHP or Ruby<br>
+but can be processed on the 'front end'<br>
+<br>
+Forms UX.. make sure to make forms accessible.. keyboard accessible, etc.<br>
+document.forms[i] same as document.getElementsByTagname('form')[i] <br>
+the name atribute can be used instead of an index: document.forms.name<br>
+or, to avoid ambiguity, document.forms['name']<br>
+
+<h5>Example:</h5>
+<form name='search' action='/search'>
+        <input name='searchInput'>
+        <button type='submit'>Search</button>
+    </form>
 
 
+Submit options: <br>
+&ltbutton type='submit'&gtSubmit&lt/button&gt<br>
+&ltinput type='submit' value='Submit'&<br>
+&ltinput type='image' src='button.png'&gt<br>
+
+<br><br> form.submit() and form.reset()<br>
+<br>
+form.action can set the action attribute of a form. <br>
+form.action ='an/other.url'<br>
+
+Form events: <br>
+focus -- placing cursor inside form<br> 
+blur --  moves focus away from element<br>
+change -- moves focus away from element after changing<br>
+submit -- submits form<br>
+<br><br>
+Submit a form by adding event listener to Submit.<br>
+form is submitted to action URL.<br>
+placeholder attribute in HTML can add a 'placeholder' <br>
+placeholder will not hold value<br>
+
+Form controls: <br>
+input<br>
+select<br>
+textarea<br>
+button<br>
+input fields: <br>
+text<br>
+password -- conceals charachters as they are entered<br>
+checkbox -- adds checkboxes<br>
+radio -- selects only one<br>
+hidden -- not displayed by browser, but have a value. but not secret(as will appear in html)<br>
+file -- used to upload files<br>
+-----Other types<br>
+-----number<br>
+-----tel<br>
+-----color<br>
+Select dropdown list<br>
+<br>
+<br>
+Text areas -- work much like text field but for long pieces of text over multiple lines<br>
+<br>
+<br>
+Buttons -- <br>
+
+<h5>Example 2:</br>
+<body>
+    <form id='hero'>
+        <label for='heroName'>Name:
+            <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32 required>
+        </label>
+		<label for='realName'>Real Name:
+			<input type='password' name='realName' id='realName'></label>
+		<p>Super Powers:</p>
+		<label for='flight'>Flight:
+			<input type='checkbox' id='flight' value='Flight' name='powers'>
+		</label>
+		<label for='strength'>Super Strength:
+			<input type='checkbox' id='strength' value='Strength' name='powers'>
+		</label>
+		<label for='speed'>Super Speed:
+			<input type='checkbox' id='speed' value='Super Speed' name='powers'>
+		</label>
+		<label for='energy'>Energy Blasts:
+			<input type='checkbox' id='energy' value='Energy Blasts' name='powers'>
+			</label>
+		<label for='telekinesis'>Telekinesis:
+		<input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+		</label>
+<br>
+		<p>What type of hero are you?</p>
+	<label for='hero'>Hero:
+		<input type='radio' name='category' value='Hero' id='hero'>
+	</label>
+	<label for='villain'>Villain:
+		<input type='radio' name='category' value='Villain' id='villain'>
+	</label>
+	<label for='anti-hero'>Anti-Hero:
+		<input type='radio' name='category' value='Antihero' id='anti-hero'>
+	</label>
+	<br>
+	<label for='City'>Base of Operations:
+    <select name='city' id='city'>
+        <option value='' selected>Choose a City</option>
+        <option value='Metropolis'>Metropolis</option>
+        <option value='Gotham City'>Gotham City</option>
+        <option value='Keystone City'>Keystone City</option>
+        <option value='Coast City'>Coast City</option>
+        <option value='Star City'>Star City</option>
+    </select>
+</label>
+<br>
+<label for='origin'>Origin Story:
+    <textarea id='origin' name='origin' rows='20' cols='60'></textarea>
+</label>
+<br>
+
+	<button type='submit'>Submit</button>
+	</form>
+</p>
+<h4> Notes for Chapter 12</h4>
+
+Object oriented programming in Javascript<br>
+
+Encapsulation - hide what I don't need to see<br>
+Polymorphism - same process can be used in different objects<br>
+Inheritance - parent/child relationship -- passing features to other objects<br>
+Classes - blueprint for an object<br>
+
+Constroctor Function - defines properties and methods of an object:<br>
+ <textarea id='constructor' name='constructor' rows='20' cols='60'>
+const Dice = function(sides=6){
+    this.sides = sides;
+    this.roll = function() {
+        return Math.floor(this.sides * Math.random() + 1)
+    }
+}</textarea><br>
+
+
+create an instance of the object: const redDice = new Dice();<br>
+(parenthesis are not required unless passing a parameter)<br>
+<br>
+
+Built in constructor functions:
+Object -- constructedObject = new Object();<br>
+Array -- constructedArray = new Array(1,2,3);<br>
+Function<br>
+<br>
+ES6 introduced Class Declarations: <br>
+
+ <textarea id='constructor' name='constructor' rows='20' cols='60'>
+class Dice {
+    constructor(sides=6) {
+        this.sides = sides;
+    }
+    roll() {
+        return Math.floor(this.sides * Math.random() + 1)
+    }
+}
+</textarea><br>
+
+<br>
+<br>
+By convention names of constructor functions or class declarations are capitalized<br>
+<br>
+The ES6 class declarations are preferable to the constructor function syntax because
+ they are more succinct, easier to read and all code in a class definition is
+ implicitly in strict mode, so doesn't need the 'use strict' statement. Using ES6 
+ class declarations also avoids a number of pitfalls associated with constructor
+ functions. <br>
+ <br>
+ All objects have constructor property that return the constructor that created it<br>
+ <br>
+ Static method -- calling methods directly in the class instead of instance of the class<br>
+ <br>
+ Prototypal Inheritance .. <br>
+ Prototype property: can be used to assign new properties::<br>
+ class.prototype.newproperty = 'New info';<br>
+ <br>
+ How to find the prototype: <br>
+ instance.constructor.prototype;<br>
+ Object.getPrototypeOf(instance); --[recommended]<br>
+ instance._proto_;<br>
+ <br>
+ Own properties and Prototype Properties<br>
+ Own properties are specific to the instance<br>
+ Prototype properties are shared among instances<br>
+ The prototype is live, so anything added to the prototype will reflect in instances<br>
+ <br>
+ Ovrwriting prototype properties:<br>
+ Once overwritten by assigning property, the prototype properties become Own properties<br>
+ <br>
+ Prototypes best used to add properties that will be used in every instance of the prototypes<br>
+ Prototype values are shallow<br>
+ bet to never use arrays or objects as default value in prototype<br>
+ <br>
+ Public and private methods: <br>
+ ?? public this.variable <br>
+ ?? private let _variable<br>
+ private by limiting scope within constructor..<br>
+ <br> 
+ Prototype chain<br>
+ :: Object.getPrototypeOf(Object.getPrototypeOf(Object.getPrototypeOf(raph)))<br>
+ 
+ Enumberable Properties <br>
+ propertyIsEnumerable()<br>
+ Good practice is for all built-in methods to be non-enumerable,
+ and any user-defined methods to be made enumerable<br>
+ <br>
+ Inheritance using extends:<br>
+ example: <br>
+ <textarea id='constructor' name='constructor' rows='20' cols='60'>
+class NinjaTurtle extends Turtle {
+    constructor(name) {
+        super(name);
+        this.weapon = 'hands';
+    }
+    attack() { return `Feel the power of my ${this.weapon}!` } 
+}
+</textarea><br>
+
+<br>
+Polymorphism<br>
+different objects have the same method but inplement it in different ways<br>
+toSTring() method is typically overridden in an object to provide something more useful<br>
+The advantage to polymorphism is allowing higher-level functions are able to call a single method,
+ even though it may be implemented in various ways.<br>
+ <br>
+ Adding methods to built-in objects (monkey-patching)<br>
+ this is generally frowned on in JS community<br>
+ (basically, just add prototypes to built-in objects)<br>
+ <br>
+ Monkey patching can be useful when dealing with methods not natively supported 
+ in some browsers<br>
+ <br><br>
+ Property attributes and Descriptors:<br>
+ value<br>
+ writable<br>
+ enumerable<br>
+ for in loop (false by default)<br>
+ configurable(false by default)<br>
+ --- getting and setting:<br>
+ Object.defineProperty();<br>
+ example:<br>
+ Object.defineProperty(me, 'eyeColor', { value: 'blue', writable: false, enumerable: true }); <br>
+ <br>
+ Creating objects from other objects--<br>
+ Object.create()--<br>
+ const newObject = Object.create(PreviouslyDefinedObject);<br>
+ this makes the 'PreviouslyDefinedObject' - the prototype<br>
+ Object-Based Inheritance<br>
+ Objects inherit properties from parent objects<br>
+ <br>
+ <br>
+ Mixins<br>
+ Object.assign()<br>
+ Mixins copy by reference<br>
+ Using mixins to add properties:<br>
+ can be used to add properties all at once, 
+ syntax example: mixin(wonderWoman,{ name: 'Wonder Woman', realName: 'Diana Prince' });
+ <br><br>
+ Factory Fuction<br>
+ function that can be used to return an object<br>
+ <textarea id='constructor' name='constructor' rows='20' cols='60'>
+class NinjaTurtle extends Turtle {
+    function createSuperhuman(...mixins) {
+    const object = copy(Superhuman);
+    return mixin(object,...mixins);
+}
+</textarea><br>
+ <br> 
+ Using Mixin function to add modular functionality<br>
+ Does object have something or is it something?<br>
+<br>
+If method returns this, methods can be chained<br>
+Example: superman.fly().move().xray();<br>
+<br>
+Binding this:<br>
+Use that = this;<br>
+<textarea id='constructor' name='constructor' rows='20' cols='60'>
+superman.findFriends = function(){
+    const that = this;
+    this.friends.forEach(function(friend) {
+        console.log(`${friend.name} is friends with ${that.name}`);
+    }
+    );
+}
+</textarea><br>
+Use bind(this) 
+<textarea id='constructor' name='constructor' rows='20' cols='60'>
+superman.findFriends = function() {
+    this.friends.forEach(function(friend) {
+        console.log(`${friend.name} is friends with ${this.name}`);
+    }.bind(this);)
+}
+</textarea><br>
+Use for-of instead of forEach<br>
+<textarea id='constructor' name='constructor' rows='20' cols='60'>
+superman.findFriends = function() {
+    for(const friend of this.friends) {
+        console.log(`${friend.name} is friends with ${this.name}`);
+    };
+}
+</textarea><br>
+use arrow functions:
+<textarea id='constructor' name='constructor' rows='20' cols='60'>
+superman.findFriends = function() {
+    this.friends.forEach((friend) => {
+        console.log(`${friend.name} is friends with ${this.name}`);
+    }
+    );
+}
+</textarea><br>
+<br> 
+Borrowing Methods from Prototypes: <br>
+<textarea id='constructor' name='constructor' rows='20' cols='60'>
+  const fly = superman.fly;
+  fly.call(batman);
+</textarea><br>
+<br>
+
+</p>
+<h4> Notes for Chapter 15</h4>
+
+Libraries --<br>
+Dom manipulation --<br>
+Js..<br>
+<textarea id='constructor' name='constructor' rows='20' cols='60'>
+  para.classList.add('important');
+const newPara = document.createElement('p');
+newPara.textContent = 'Another Paragraph';
+para.appendChild(newPara);
+</textarea><br>
+vs JQuery:
+<textarea id='constructor' name='constructor' rows='20' cols='60'>
+  $(para).addClass('important').append('<p>Another Paragraph</p>');
+</textarea><br>
+<br>
+jQuery is most popular library --<br>
+big advantage is support for JQuery in older browsers<br>
+<br>
+Underscore & Lodash<br>
+Adds quite a bit of functionality particularly with arrays<br>
+<br>
+Pros and cons of using Libraries<br>
+pros:<br>
+thoroughly tested --<br>
+will typically not have trouble in most browsers<br>
+online documentation<br>
+Cons:<br>
+need to include the code for the library<br>
+might not implement functionality the way you intend<br>
+can make code slower<br>
+
+<br>
+Using "modules" may limit what part of a library is used<br>
+<br>
+Default exports -- a single variable, function or class that can be imported without 
+needing to be explicitly named<br> 
+<br> syntax: export default functionName;<br>
+***Having more than one default export will result in Syntax error<br>
+import syntax: import functionName from './filename.js';<br>
+MVC Frameworks<br>
+Model - View -- Controllers<br>
+MV* -- catch all term for other inplementations<br>
+Aurelia <br>
+Angular <br> 
+Ember <br>
+<br>
+Templates<br>
+&lth1&gtHello {{ name }}&LT/h1&gt<br>
+&lth1&gtHello &lt%= name %&gt&lt/h1&gt<br>
+<br>
+View Libraries<br>
+React<br>
+Vue.js<br>
+Both use virtual DOM to speed up the process of updating HTML pages only updating 
+items that need to be changed<br>
+<br>
+
+
+<script src="main.js"></script>
 </body>
+
 </html>
