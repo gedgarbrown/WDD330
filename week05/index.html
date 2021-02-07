@@ -8,7 +8,161 @@
 <body onload="loadIndex()">	
 <h1>George Brown Portfolio WDD 330</h1>
 <h2>Week 5</h2>
+<h4> Notes for Chapter 10</h4>
 
+Exceptions -- An error that produces a return value that can then be used to
+deal with the error<br>
+<br>
+Stack Trace, the 'path' of functions that point to where the error occured <br>
+<br>
+Warnings occur if the error isn't enough to cause the program to crash. <br>
+It can cause unexpected results allowing the program to run with errors. <br>
+<br>
+Strict mode produces more exceptions and warnings. But can be useful in forcing better code<br>
+Enable strict mode:<br>
+'use strict';<br>
+<br>
+Strict mode can be used within the scope of a single function<br>
+Modules are in strict mode by default<br>
+<br>
+Linting tools -- tools highlighting sloppy practices or syntax errors.
+<br> that can be used to enforce a style guide. <br>
+passing a lint test might not guarantee correct code, but will ensure consistency<br>
+<br>
+Feature detection: <br>
+Some browsers might not support all JS features.<br>
+Test using: <br>
+<textarea id='constructor' name='constructor' rows='20' cols='60' readonly>
+if (window.holoDeck) {
+    featureName.activate();
+}
+</textarea><br>
+<br>
+Debugging:<br>
+using alerts was only option in the past, but discouraged today<br>
+<br>
+Use console.log() to log variables at certain states for debugging<br>
+Use console.trace() will log a stack trace in the console<br>
+<br>
+Set breakpoints:<br>
+Debugging tools for different browsers<br>
+<a href="https://developer.mozilla.org/en-US/docs/Tools/Debugger">Firefox</a><br>
+<a href="https://docs.microsoft.com/en-us/microsoft-edge/f12-devtools-guide/debugger">Firefox</a><br>
+<a href="https://developer.chrome.com/devtools/docs/javascript-debugging">Firefox</a><br>
+<a href="https://developer.apple.com/library/mac/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Debugger/Debugger.html">Firefox</a><br>
+<br>
+debugger keyword -- will create a breakpoint in your code that will pause execution<br>
+example: <br>
+<textarea id='constructor' name='constructor' rows='20' cols='60' readonly>
+function amIOldEnough(age){
+    debugger;
+        if (age < 12) {
+        debugger;
+        return 'No, sorry.';
+        } else if (age < 18) {
+        debugger;
+        return 'Only if you are accompanied by an adult.';
+        } else {
+        debugger;
+        return 'Yep, come on in!';
+    }
+}
+amIOldEnough(16);</textarea><br>
+<br>
+!!make sure to remove debugging code prior to shipping!!<br>
+<br>
+Error Objects:<br>
+<textarea id='constructor' name='constructor' rows='20' cols='60' readonly>
+function amIOldEnough(age){
+
+ Error is thrown when an excetpion occurs.
+
+ EvalError is not used in the current ECMAScript specification and only retained for backwards compatibility. It was used to identify errors when using the global eval() function.
+
+ RangeError is thrown when a number is outside an allowable range of values.
+
+ ReferenceError is thrown when a reference is made to an item that doesn’t exist. For example, calling a function that hasn't been defined.
+
+ SyntaxError is thrown when there’s an error in the code’s syntax.
+
+ TypeError is thrown when there’s an error in the type of value used; for example, a string is used when a number is expected.
+
+ URIError is thrown when there’s a problem encoding or decoding the URI.
+
+ InternalError is a non-standard error that is thrown when an error occurs in the JavaScript engine. A common cause of this too much recursion.
+ </textarea><br>
+ <br>
+ Error objects can be created with a constructor to have a specific error message.<br>
+ Error objects have 3 properties:<br>
+ name - property name of the constructor as a string<br>
+ message - the error discription (what would be provided in the constructor)<br>
+ stack - the stack trace for the error Note: not safe for production<br>
+ 
+ <br>
+ Throw error exceptions: best to throw exceptions in a catch.<br>
+ Example of throwing exception:<br>
+ <textarea id='constructor' name='constructor' rows='20' cols='60' readonly>
+	function squareRoot(number) {
+    'use strict';
+    if (number < 0) {
+        throw new RangeError('You can't find the square root of negative numbers')
+    }
+    return Math.sqrt(number);
+};
+</textarea><br>
+<br>
+Exception Handling:<br>
+try - catch - and finally<br>
+<br>
+Use try to 'test out' the code and if an error occurs, pass the error through
+in a catch<br>
+Example: 
+ <textarea id='constructor' name='constructor' rows='20' cols='60' readonly>
+	function imaginarySquareRoot(number) {
+    'use strict';
+    try {
+        return String(squareRoot(number));
+    } catch(error) {
+        return squareRoot(-number)+'i';
+    }
+}
+</textarea><br>
+<br>
+Finally block can be added after catch block to be executed after try or catch.<br>
+Finally will be executed independently of an exception occuring<br>
+<br>
+Tests -- functions that ensure code works <br>
+Example: <br>
+<textarea id='constructor' name='constructor' rows='20' cols='60' readonly>
+	function itSquareRoots4() {
+    return squareRoot(4) === 2;
+}
+</textarea><br>
+<br>
+Test driven development<br>
+Write tests (that initially fail)<br>
+
+Write code to pass the tests<br>
+
+Refactor the code<br>
+
+Test refactored code<br>
+
+Write more tests for new features<br>
+
+<hr>
+<br>
+Testing frameworks:
+Jest 
+
+
+
+
+
+
+
+
+</p>
 
 </body>
 </html>
