@@ -1,14 +1,60 @@
-<html lang="en">
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<script src="../js/main.js"></script>
-	<title>George Brown: WDD 330</title>
+    <meta charset="utf-8" />
+    <title>ToDo List</title>
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css"/>
+    
 </head>
-<body onload="loadIndex()">	
-<h1>George Brown Portfolio WDD 330</h1>
-<h2>Week 6</h2>
+<body>
+    <div class="todoList" id="todoList">
+        <div class="header">
+            <h1 class="padTask">ToDo List</h1>
+        </div>
+        <div class="tasks" id="tasks">
+               
+        </div>
+
+        <div class="controls" id="controls">
+
+            <div class="pad10">
+                <span id="numberLeft">
+                0
+                </span>
+                tasks left
+            </div>
+            <div class="pad10">
+                <input class="sortButton, button"
+                       type="button" id="all" value="All" />
+            </div>
+            <div class="pad10">
+                <input class="sortButton, button"
+                       type="button" id="active" value="Active" />
+            </div>
+            <div class="pad10">
+                <input class="sortButton, button"
+                       type="button" id="completed" value="Completed" />
+            </div>
+
+        </div>
+        <div class="taskText" id="taskText">
+            <div class="pad10">
+                <input type="text" class="fullWidth"
+                       id="newContent" name="newContent" />
+            </div>
+            <div class="pad10">
+                <input type="button" class="button"
+                       id="createTask" name="createTask"
+                       value="+" />
+            </div>
+
+        </div>
+
+    </div>
 
 
+
+    <script type="module" src="./public/js/main.js"></script>
 </body>
 </html>
