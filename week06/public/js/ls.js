@@ -1,21 +1,25 @@
 
 export default class SavedList {
     constructor(taskJson) {
-        this.taskJson = taskJson;
+        
+        this.taskJson = "";
     }
-    setLs(taskJson) {
+    setLs(tasksJson) {
 
-        this.taskJson = JSON.stringify(this.taskJson);
+        this.taskJson = tasksJson;
 
-        localStorage.setItem('todoList', JSON.stringify(this.taskJson));
-        //alert("setLS");
+        localStorage.setItem('todoList', this.taskJson);
+        console.log("saving to LS: " + this.taskJson);
+        //alert("setLs: " + this.taskJson)
     }
 
     getLs() {
         
         this.taskJson = localStorage.getItem('todoList');
         //console.log("GetLS:" + this.taskJson)
-
+        
+        console.log("retrieving from LS: " + this.taskJson);
+       
         return this.taskJson;
     }
 

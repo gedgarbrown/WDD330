@@ -8,9 +8,22 @@ export default class ToDoList {
         this.ls = new SavedList();
         this.utilty = new Utilities();
 
+        var listFromLs = this.ls.getLs();
+        console.log("List from Ls: " + listFromLs);
+
         this.tasks = [];
-       
-         //JSON.parse(this.ls.getLs());
+
+        if (listFromLs) {
+
+            var lsObject = JSON.parse(listFromLs);
+
+            for (let i = 0; i < lsObject.length; i++) {
+
+                this.tasks.push(lsObject[i]);
+            }
+
+        }
+
 
         console.log(JSON.stringify(this.tasks));
 
