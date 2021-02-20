@@ -235,6 +235,7 @@ export default class ToDoList {
         }
 
         this.updateTasksLeft();
+        this.saveToLocal();
     }
 
     
