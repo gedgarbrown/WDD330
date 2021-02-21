@@ -10,5 +10,489 @@
 <h2>Week 7</h2>
 
 
+<h4> Notes for Chapter 11</h4>
+
+<p>
+<h6>Functions have properties and methods themselves</h6><br>
+All functions have a length property that returns the number of parameter<br>
+
+<h6>Call and Apply Methods</h6><br>
+Can "call" the function with an object as an argument for the call.<br>
+The property will be called as "this" inside the funciton.<br>
+
+Any normal paramaters would need to be added after the"call" object. ,br>
+<br>
+If there is no 'this' in the function, call can be used by providing an argument of 'null' before.<br>
+Apply works the same way, but the second argument will need to be passed as an array<br>
+Even if there is more than one argument<br>
+
+<br>
+<h6>Custom Properties</h6>
+Functions can have properties added like any other object in js.
+
+<br>
+<h6>Memoization</h6>
+using a cache property on the function to return a previously calculated result<br>
+Useful when an expensive calculation happens<br>
+
+<br><h6>Immediately Invoked Function Espressions</h6>
+an anonymous function that is invoked as soon as it is defined<br>
+<tex(function(){
+const temp = 'World';
+console.log(`Hello ${temp}`);
+})();
+<< 'Hello World'tarea rows='20' cols='60' readonly>
+	
+}
+</textarea><br>
+<br>
+<h6>Initialization Code</h6>
+An iife can be used to create initialization code, becuase the functions will likely not be used<br>
+again and variables within the iife will be temporary<br>
+<h6>Safe Use of Strict Mode</h6>
+using Strict Mode inside an iife would guarantee that using code from other sources
+may not be required to use strict mode<br>
+<textarea rows='20' cols='60' readonly>
+	(function() {
+    const name = 'Peter Parker'; // This might be obtained from a cookie in reality
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
+    const date = new Date(),today = days[date.getDay()];
+    console.log(`Welcome back ${name}. Today is ${today}`);
+})();
+}
+</textarea><br>
+<br>
+<h6>Creating Self-contained Code Blocks</h6>
+iife can be used to seperate different sets of code so that funcitons remain separate<br>
+<textarea rows='20' cols='60' readonly>
+	(function() {
+    // block A
+    const name = 'Block A';
+    console.log(`Hello from ${name}`);
+    }());
+    (function() {
+    // block B
+    const name = 'Block B';
+    console.log(`Hello from ${name}`);
+}());
+}
+</textarea><br>
+<br>
+<h6>Functions that define and rewrite themselves</h6>
+<br>
+by assigning an anonymous function to a variable that has the same name as the function, <br>
+a function may be able to redefine itself. 
+
+<textarea rows='20' cols='60' readonly>
+function party(){
+    console.log('Wow this is amazing!');
+    party = function(){
+        console.log('Been there, got the T-Shirt');
+    }
+}	
+}
+</textarea><br>
+If properties were previously assigned, then these would be lost if the funciton was re-assigned<br>
+<br>
+<br>
+<h6>Init-Time Branching</h6>
+Using redefinition is useful so that a function can behave in the correct way after an initial check
+is done so that the checks would not be repeated.<br>
+For example, checking for browser features and replacing the function with the appropriate function<br>
+ <textarea rows='20' cols='60' readonly>
+	function ride(){
+    if (window.unicorn) { 
+        ride = function(){
+        // some code that uses the brand new and sparkly unicorn methods
+        return 'Riding on a unicorn is the best!';
+        }
+    } else {
+        ride = function(){
+        // some code that uses the older pony methods
+        return 'Riding on a pony is still pretty good';
+        }
+    }
+    return ride();
+}
+}
+</textarea><br>
+
+<br>
+<h6>Recursive Functions</h6>
+Functions that will call themselves<br>
+<br>
+<h6>Callbacks</h6>
+Functions called to other functions as arguments and called within the function they are passed to.<br>
+
+<br>
+<h6>Event Driven Asynchronous Programming</h6>
+JS is a single-threaded environment. Instead of waiting for an event to occur, a callback can be created
+when that event happens<br>
+Example: <br>
+<textarea rows='20' cols='60' readonly>
+	function wait(message, callback, seconds){
+    setTimeout(callback,seconds * 1000);
+    console.log(message);
+}
+}
+</textarea><br>
+<textarea rows='20' cols='60' readonly>
+function selfDestruct(){
+    console.log('BOOOOM!');
+}	
+}
+</textarea><br>
+<textarea rows='20' cols='60' readonly>
+	wait('This tape will self-destruct in five seconds ... ', selfDestruct, 5);
+console.log('Hmmm, should I accept this mission or not ... ?');
+
+}
+</textarea><br>
+
+Javascript event loop. <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">JS Event Loop Video</a><br>
+<br>
+<h6> Callback Hell</h6>
+When callbacks are used so frequently and within nested blocks that everything becomes a mess<br>
+See it's own website: <a href="http://callbackhell.com/">Callback Hell Website</a><br>
+ <textarea rows='20' cols='60' readonly>
+	login(userName, function(error,user) {
+    if(error){
+        throw error;
+    } else {  
+        getPlayerInfo(user.id, function(error,info){
+        if(error){
+        throw error;
+        } else {
+            loadGame(info, function(error,game) {
+                if(error){
+                        throw error;
+                    } else {
+                    // code to run game
+                }
+            });
+        }
+        });
+    }
+}
+</textarea><br>
+<br>
+<h6>Promises</h6>
+Promises represent the future result of an asynchronous operation. 
+<br> 
+A promise is created and would be Pending while awaiting the asyncrhonous operation<br>
+It is called unsettled until the operation completes. <br>
+Once settled, it can be either resolved or rejected<br>
+<br>
+Creating a promise:<br>
+<textarea rows='20' cols='60' readonly>
+	const promise = new Promise( (resolve, reject) => {
+    // initialization code goes here
+    if (success) {
+        resolve(value);
+    } else {
+        reject(error);
+    }
+});
+}
+</textarea><br>
+
+
+<br>
+Example of promise using dice: <br>
+<textarea rows='20' cols='60' readonly>
+	const dice = {
+    sides: 6,
+    roll() {
+        return Math.floor(this.sides * Math.random()) + 1;
+    }
+}
+}
+</textarea><br>
+<br>
+ <textarea rows='20' cols='60' readonly>
+	const promise = new Promise( (resolve,reject) => {
+    const n = dice.roll();
+    setTimeout(() => {
+        (n > 1) ? resolve(n) : reject(n);
+    }, n*1000);
+});
+}
+</textarea><br>
+
+<br> 
+Dealing with a settled promise:<br>
+
+ <textarea rows='20' cols='60' readonly>
+	promise.then( result => console.log(`Yes! I rolled a ${result}`), result => console.log(`Drat! ... I rolled a ${result}`) )
+}
+</textarea><br>
+ <textarea rows='20' cols='60' readonly>
+	promise.catch( result => console.log(`Drat! ... I rolled a ${result}`));
+}
+</textarea><br>
+
+<textarea rows='20' cols='60' readonly>
+	const dice = {
+sides: 6,
+    roll() {
+        return Math.floor(this.sides * Math.random()) + 1;
+    }
+}
+console.log('Before the roll');
+const roll = new Promise( (resolve,reject) => {
+    const n = dice.roll();
+    if(n > 1){
+        setTimeout(()=>{resolve(n)},n*200);
+    } else {
+        setTimeout(()=>reject(n),n*200);
+    }
+});
+roll.then(result => console.log(`I rolled a ${result}`) )
+.catch(result => console.log(`Drat! ... I rolled a ${result}`) );
+console.log('After the roll');
+}
+</textarea><br>
+
+Promises can be chained together making asynchronous processes easier to read<br>
+<br>
+<h6>Async Function</h6>
+async function allows for asyncronous procedures to we written using 'await'<br>
+
+ <textarea rows='20' cols='60' readonly>
+	async function loadGame(userName) {
+    try {
+        const user = await login(userName);
+        const info = await getPlayerInfo (user.id);
+        // load the game using the returned info
+    }
+    catch (error){
+        throw error;
+    }
+}
+}
+</textarea><br>
+<br>
+<br>
+<h6>Generalized Functions</h6>
+
+ <textarea rows='20' cols='60' readonly>
+	function random(a,b=1) {
+    // if only 1 argument is provided, we need to swap the values of a and b
+    if (b === 1) {
+        [a,b] = [b,a];
+    } 
+    return Math.floor((b-a+1) * Math.random()) + a;
+}
+random(6);
+<< 4
+random(10,20);
+<< 13
+}
+</textarea><br>
+<textarea rows='20' cols='60' readonly>
+	function random(a,b,callback) {
+    if (b === undefined) b = a, a = 1; // if only one argument is supplied, assume the lower limit is 1
+        const result = Math.floor((b-a+1) * Math.random()) + a
+    if(callback) {
+        result = callback(result);
+    }
+    return result;
+}
+}
+</textarea><br>
+
+ <textarea rows='20' cols='60' readonly>
+	function square(n) {
+    return n*n;
+}
+random(1,10,square);
+<< 49
+}
+</textarea><br>
+<h4> Notes for Chapter 13</h4>
+
+<p>
+<h6>Clients and servers</h6>
+The client is the 'local' computer where infromation is accessed from a remote 'server' that provides 
+information through connection to the internet.<br>
+Ajax allows client-side JS to request data from the server<br>
+Same origin Policy blocks requests from a domain that is different from the page making the request<br>
+CORS is an exception to the same site policy to allow information to be shared via API<br>
+<h6>Fetch API</h6>
+The current standeard for requesting and sending data using APIs<br>
+<h6>Basic usage</h6>
+Fetch API provides a global fetch() method that has a parameter for the URL of the resource you would
+like to fetch<br>
+ <textarea rows='20' cols='60' readonly>
+	fetch('https://example.com/data')
+.then( // code that handles the response )
+.catch( // code that runs if the server returns an error )
+}
+</textarea><br>
+<br>
+<h6>Response Interface</h6>
+Response is returned with a HTTP status code<br>
+ <textarea rows='20' cols='60' readonly>
+	const url = 'https:example.com/data';
+fetch(url)
+.then((response) => {
+    if(response.ok) {
+        return response;
+    }
+    throw Error(response.statusText);
+})
+.then( response => // do something with response )
+.catch( error => console.log('There was an error!') )
+}
+</textarea><br>
+<br>
+
+Response objects are: <br>
+headers<br>
+url<br>
+redirected<br>
+type<br>
+statusText<br>
+<br>
+<h6>Redirects</h6>
+<textarea rows='20' cols='60' readonly>
+	fetch(url)
+.then( response => response.redirect(newURL)); // redirects to another URL
+.then( // do something else )
+.catch( error => console.log('There was an error: ', error))
+}
+</textarea><br>
+currently there is not support for redirect() in any browser<br>
+<br>
+<h6>Text Responses</h6>
+example:<br>
+<textarea rows='20' cols='60' readonly>
+	fetch(url)
+.then( response => response.text() ); // transforms the text stream into a JavaScript string
+.then( text => console.log(text) )
+.catch( error => console.log('There was an error: ', error))
+}
+</textarea><br><br>
+<h6>File Responses</h6>
+The blob method is used to read a file of raw data.
+Example: <br>
+ <textarea rows='20' cols='60' readonly>
+	fetch(url)
+.then( response => response.blob() ); // transforms the data into a blob object
+.then( blob => console.log(blob.type) )
+.catch( error => console.log('There was an error: ', error))
+}
+</textarea><br>
+
+<br>
+<h6> JSON Responses</h6>
+JSON is likely the most common format for AJAX responses<br>
+Example: 
+<br>
+ <textarea rows='20' cols='60' readonly>
+	fetch(url)
+.then( response => response.json() ); // transforms the JSON data into a JavaScript object
+.then( data => console.log(Object.entries(data)) )
+.catch( error => console.log('There was an error: ', error))
+}
+</textarea><br>
+<br>
+<h6>Creating Response Objects</h6>
+new response objects can be created<br>
+Example:<br>
+<textarea rows='20' cols='60' readonly>
+	const response = new Response( 'Hello!', {
+    ok: true,
+    status: 200,
+    statusText: 'OK',
+    type: 'cors',
+    url: '/api'
+});
+}
+</textarea><br><br>
+<h6>Request Interface></h6>
+Creating a request object allows more control over the request being made<br>
+The following properties are included:<br>
+<ul>
+<li>url -- URL of the requested source</li>
+<li>method -- a string of the HTTP method that is used, GET by default</li>
+<li>headers -- the header object</li>
+<li>mode -- allows to specify if CORS is used, CORS is used by default</li>
+<li>cache -- allows to specify how the request uses the browser cache</li>
+<li>credentials< -- allows to specify if cookies can be allowed in the request/li>
+<li>redirect<br>
+     has 3 responses -- follow, error, or manual</li>
+
+</ul>
+<br>
+<h6>HTTP</h6>
+Options include: 
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUT</li>
+<li>PATCH</li>
+<li>DELETE</li>
+</ul>
+<a href="https://robm.me.uk/2013/09/http-verbs/">See more information in this post</a><br>
+<br>
+ <textarea rows='20' cols='60' readonly>
+	const request = new Request('https://example.com/data', {
+    method: 'GET',
+    mode: 'cors',
+    redirect: 'follow',
+    cache: 'no-cache'
+});
+}
+</textarea><br>
+<br>
+<h6>Headers Interface</h6>
+Headers are used to pass aditional information.<br>
+New header instances can be created:<br>
+const headers = new Headers();
+<br>
+<br>
+the constructor can be provided with optional arguments containing initial values<br>
+Headers have the following methods:<br>
+<ul>
+<li>has() can be used to check if the header has provided as an argument.</li>
+<li>get() -- returns the value of the header provided</li>
+<li>set() -- sets the value of the argument.</li>
+<li>append() -- ads a new header to the headers object</li>
+<li>delete() -- removes the header provided as an argument</li>
+<li>keys(), values, and entries() -- can be used to iterate over object</li>
+</ul>
+
+Headers request example:<br>
+<textarea rows='20' cols='60' readonly>
+	
+const url = 'https:example.com/data';
+const headers = new Headers({ 'Content-Type': 'text/plain', 'Accept-Charset' : 'utf-8', 'Accept-Encoding':'gzip,deflate' })
+const request = (url,{
+    headers: headers
+})
+fetch(request)
+.then( function(response) {
+    if(response.ok) {
+        return response;
+    }
+    throw Error(response.statusText);
+})
+.then( response => // do something with response )
+.catch( error => console.log('There was an error!') )
+
+</textarea><br>
+<br>
+Example: 
+
+<a href="chucknorris.html">Example of recieving AJAX here:</a><br>
+
+
+
+Example of send: 
+<a href="todo.html">Example of sending here:</a>
+
+</p>
+
 </body>
 </html>
