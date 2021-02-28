@@ -1,13 +1,142 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<script src="../js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script src="./main.js"></script>
 	<title>George Brown: WDD 330</title>
 </head>
-<body onload="loadIndex()">	
+<body>	
 <h1>George Brown Portfolio WDD 330</h1>
 <h2>Week 8</h2>
+<h4> Notes for Chapter 8</h4>
+
+<p>
+<h6>Transforms:</h6>
+Allows translate, rotate, scale, or skew any element on the page. 
+
+<h6>Translation</h6>
+Allows for moving of items left right up and down.<br>
+translate(x, y) moves an an element x from the left and y from the top.<br>
+<br>
+For older browsers: <br>
+<textarea rows='20' cols='60' readonly>
+	-webkit-transform: translate(45px,-45px); /* iOS8, Android 
+↵4.4.3, BB10 */
+-ms-transform: translate(45px,-45px); /* IE9 only */
+transform: translate(45px,-45px);
+
+</textarea><br>
+<br>
+translateX(x) or translateY(y) to move on an individual axis.<br>
+<br>
+scale(x, y) or scale(xAndY).. will change size<br>
+<br>
+transform will not alter the flow of other elements.<br>
+<br>
+Rotation -- rotate(10deg)<br>
+<br>
+Skew -- Skeew(x,y)<br>
+<br>
+transform-origin: 0 0;<br>
+<br>
+Order of transforms will matter.<br>
+<br>
+supporting older browsers:<br>
+<textarea rows='20' cols='60' readonly>
+	
+.rotate {
+    transform: rotate(15deg);  
+    filter: progid:DXImageTransform.Microsoft.Matrix(
+        sizingMethod='auto expand', M11=0.9659258262890683, 
+        M12=-0.25881904510252074, M21=0.25881904510252074, 
+        M22=0.9659258262890683); 
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(
+        M11=0.9659258262890683, M12=-0.25881904510252074, 
+        M21=0.25881904510252074, M22=0.9659258262890683,
+        sizingMethod='auto expand')"; 
+    zoom: 1;
+}
+</textarea><br>
+
+<br>
+<h6>Transition</h6>
+transition-property, transition-duration, transition-timing-function, transition-delay<br>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">
+List of properties that can be transitioned</a>
+
+<br>
+
+transition-timing-function: <br>
+ease<br>
+linear<br>
+ease-in<br>
+ease-out<br>
+ease-in-out<br>
+<br>
+
+cubic-bezier -- cubic-bezier(0, 0, 1, 1);<br>
+<a href="http://cubic-bezier.com/">Cubic Bezier Site</a><br>
+<br>
+transition-delay:
+<br>
+<br>
+negative delay can cause the transition to begin midway through.<br>
+<br>
+Animations: move through defined keyframes<br>
+<br>
+<textarea rows='20' cols='60' readonly>
+	@-webkit-keyframes myAnimation { 
+    /* put animation keyframes here */
+}
+@keyframes myAnimation { 
+    /* put animation keyframes here */
+}
+
+</textarea><br>
+
+<br>
+<br>
+<textarea rows='20' cols='60' readonly>
+@keyframes moveRight { 
+    from {
+    transform: translateX(-50%);
+    }
+    to {
+    transform: translateX(50%);
+    }
+}
+@keyframes appearDisappear { 
+    0%, 100% {
+    opacity: 0;
+    }
+    20%, 80% {
+    opacity: 1;
+    }
+}
+@keyframes bgMove {
+    100% {
+    background-position: 120% 0;
+    }
+}
+</textarea><br>
+<br>
+
+Animation Properties:<br>
+animation-name: nameOfAnimation;<br>
+animation-duration: 300ms;<br>
+animation-timing-function: (same timing functions for transition);<br>
+animation-iteration-count: infinite; (default is 1)<br>
+animation-direction: reverse/alternate/normal/alternate-reverse; <br>
+animation-delay: 50ms; <br>
+animation-fill-mode: backwards/forwards<br>
+animation-play-state<br>
+<br>
+
+
+</p>
+
+<a href="./translate.html">Example</a>
 
 
 </body>

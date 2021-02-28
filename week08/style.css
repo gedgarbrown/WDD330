@@ -1,0 +1,20 @@
+h1:hover span {
+    color: #484848;  
+    transform: translateX(100px) scale(2) rotate(-10deg) skew(15deg, 4deg);
+	font-size: 30px;
+    color: Green;
+    display: inline-block;
+	
+}
+
+h1 span {
+	transition-property: transform color;
+	transition-duration: 1s;
+	transition-timing-function: ease-out;
+	transition-delay: 50ms;
+}
+
+.myCanvas {
+	border: dotted 2px black;
+}
+
