@@ -50,17 +50,18 @@ export default class ToDoList {
         }
         else if (this.displayMethod === 'complete') {
 
-            
-            tasksToRender = this.utilty.sortCompleted(this.tasks);
 
+            tasksToRender = this.utilty.sortCompleted(this.tasks);
+            console.log("Tasks to render returned: " + JSON.stringify(tasksToRender));
         }
+       
        
         for (let i = 0; i < tasksToRender.length; i++) {
 
             
-            console.log(JSON.stringify(this.tasks[i]));
+            console.log(JSON.stringify(tasksToRender[i]));
 
-            this.renderTask(this.tasks[i]);
+            this.renderTask(tasksToRender[i]);
 
             
         }
@@ -106,11 +107,9 @@ export default class ToDoList {
         item.appendChild(boxDiv);
         item.appendChild(labelDiv);
         item.appendChild(buttonDiv);
-        //add classes to divs
+        
         item.classList.add("individualItem");
-        //labelDiv.classList.add("padTask");
-        //labelDiv.classList.add("taskText");
-        //buttonDiv.classList.add("padTask");
+       
 
         //add individual items to the divs
         //********************************
@@ -123,9 +122,7 @@ export default class ToDoList {
         box.classList.add("taskItem");
         box.id = taskToRender.id;
 
-        if (taskToRender.isCompleted) {
-            box.checked = true;
-        }
+      
         
 
         //add label 
@@ -133,8 +130,16 @@ export default class ToDoList {
         labelDiv.appendChild(label);
 
         label.htmlFor = taskToRender.id;
-        label.innerHTML = taskToRender.content;
         
+
+        if (taskToRender.isCompleted) {
+           
+            box.checked = true;
+            label.innerHTML = "<strike>" + taskToRender.content + "</strike>";
+        }
+        else {
+            label.innerHTML = taskToRender.content;
+        }
 
         //add button
         const button = document.createElement("input");

@@ -22,12 +22,17 @@ export default class Utilities {
 
         for (var i = 0; i < tasks.length; i++) {
 
+            console.log("Sorting Completed tasks:");
+
             if (tasks[i].isCompleted) {
 
                 completedTasks.push(tasks[i]);
+                console.log(JSON.stringify(tasks[i]));
+
             }
         }
-
+        console.log("end sort");
+        console.log(JSON.stringify(completedTasks));
         return completedTasks;
     }
 
