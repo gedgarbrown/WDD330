@@ -1,14 +1,246 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<script src="../js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+	<script src="./main.js"></script>
 	<title>George Brown: WDD 330</title>
 </head>
-<body onload="loadIndex()">	
+<body>	
 <h1>George Brown Portfolio WDD 330</h1>
 <h2>Week 9</h2>
+</textarea><br>
+<h4> Notes for Chapter 9</h4>
 
+<p>
+<h6>Browser Object model</h6><br>
+(BOM) collection of properties and methods that contain information for user screen<br>
+Properties are made available throught he window object<br>
+BOM would only make sense in a browser. other environments (like Node.js) won't have a window object.
+but may have a global object that can be referred to.<br>
+<br>
+In the browser environment, Global variables are created in the window<br>
+Most times, it is not necessary to use window when referring to global objects, but if the variable has
+not yet been defined, it can be referenced.<br>
+example.. if (window.x) { //do something};<br>
+<br>
+<h6>Dialogs</h6><br>
+3 types of dialogs covered in previous chapters: alert(), confirm() and prompt().<br>
+Alert stops the program and will always return undefined<br>
+Confirm will stop execution and will return a boolean balue based on user response<br>
+Prompt will stop execution and will prompt for a string as a response. Null is returned when cancel is selected<br>
+<br>
+<br>
+<h6>Browser Information</h6>
+Which browser<br>
+window.navigator.userAgent; <br>
+<br>
+Window location <br>
+Properties<br>
+window.location.href<br>
+window.location.protocol<br>
+window.location.host<br>
+window.location.hostname<br>
+window.location.port<br>
+window.location.pathname<br.
+window.location.search<br>
+window.location.hash<br>
+window.location.origin<br>
+Methods: <br>
+reload()<br>
+assign() ---  window.location.assign('https://www.sitepoint.com/')<br>
+replace()<br>
+toString()<br>
+<br>
+
+The Browser History
+window.history.length -- shows how many pages have been visited before arriving in current page<br>
+window.history.go(x) --- goes to a specific page in history, 0 is current page<br>
+window.history.forward()<br>
+window.history.back()<br>
+<br>
+Controlling Windows<br>
+window.open() -- opens a new window.<br>
+window.open(URL, title, list of attributes)<br>
+close() -- used to close a window assuming you have a reference to it<br>
+window.moveTo(x, y) -- move the window coordinates in the screen<br>
+window.resize(x, y) -- resizes to height and width<br>
+<br>
+Screen Information<br>
+window.screen.height -- returns screen height<br>
+window.screen.width -- returns screen width<br>
+window.screen.colorDepth -- returns color bit depth<br>
+<br>
+Document Object<br> 
+document.write(string) --- will completely replace the current page with string parameter<br>
+<br>
+Cookies<br>
+Cookies can only be read by the same domain that set them.<br>
+They have up to 4kb of data and a maximum of 20 cookies are allowed per domain<br>
+Cookies are used to 'remember' states or data between browser sessions<br>
+EU requires permission from user befor setting cookies<br>
+<br>
+Creating Cookies<br>
+document.cookie = 'parameter=value';<br>
+<br>
+Reading Cookies<br>
+use split..<br> 
+<textarea rows='20' cols='60' readonly>
+	const cookies = document.cookie.split("; ");
+for (crumb of cookies){
+    const [key,value] = crumb.split("=");
+    console.log(`The value of ${key} is ${value}`);
+}
+<< The value of name is Batman
+The value of hero is true
+The value of city is Gotham
+</textarea><br>
+Cookie Expiry Dates<br>
+cookies can be made persistent by adding "; expires=date"<br>
+otherwise they expire with the session.<br>
+<textarea rows='20' cols='60' readonly>
+const expiryDate = new Date(); 
+const tomorrow = expiryDate.getTime() + 1000 * 60 * 60 * 24;
+expiryDate.setTime(tomorrow);
+document.cookie = `name=Batman; expires=${ expiryDate.toUTCString()}`;
+</textarea><br>
+The Max age value can also be used: document.cookie = 'name=Batman; max-age=86400' // 86400 secs = 1 day<br>
+<br>
+Path and domain of Cookies<br>
+Path and domain of cookies can be changed.<br> 
+<textarea rows='20' cols='60' readonly>
+	document.cookie = 'name=Batman; path=/'
+
+   document.cookie = 'name=Batman; domain=sitepoint.com';
+ </textarea><br>
+
+<br> 
+<br> 
+Secure cookies<br>
+add ; secure to ensure it is only transmitted over secur HTTPS network<br>
+<br>
+Deleting Cookies<br>
+To remove a cookie, set it to expire to a time in the past<br>
+<br>
+<br>
+Timing functions<br>
+setTimeout(callback, seconds)<br>
+window.setTimeout(() => alert("time's Up!", 3000); 
+<br> 
+setInterval(callback, seconds) -- repeats callback every so many seconds<br>
+to stop, window.clearInterval(interval); <br>
+<br>
+Using 'this' with either Inteval or Timing has 'this' bound to window object, not function.<br>
+Intervals ant time outs can be used with animations<br> 
+<a href="animation.html">Example with Animation</a>
+<br>
+Request Animation Frame<br>
+window.requestAnimationFrame(function);<br>
+
+<a href="animation2.html">Example with Request Animation Rate</a>
+</p>
+
+<h4> Notes for Chapter 14</h4>
+
+<p>
+<h6>The data- Attribute</h6>
+data- attribute is a way of embedding data in a web page using custom attributes ignored by the browser<br>
+ <textarea rows='20' cols='60' readonly>
+ data-powers = 'flight superSpeed'
+data-rating = '5' 
+data-dropdown 
+data-user = 'DAZ' 
+data-max-length = '32'
+	
+</textarea><br>
+<br>
+Access data- in js by using the dataset property.
+
+<textarea rows='20' cols='60' readonly>
+const superman = document.getElementById('hero');
+const powers = superman.dataset.powers;
+<< 'flight superSpeed'	
+
+</textarea><br>
+
+<br>
+<h6>HTML5 APIs </h6>
+localStorage.setItem(key, value);<br>
+localStorage.getItem(key);<br>
+<br>
+alternately: 
+localStorage.keyName = value;<br>
+remove:< br>
+localstorage.removeItem(key);<br>
+or delete localStorage.keyName<br>
+to delete all, localStorage.clear();<br>
+<br>
+key -- tells us the key of the item that changed, <br>
+newValue -- tells us the value to which it has been changed<br>
+oldValue -- the value it was previously<br>
+storageArea -- tells us if it is in local or session storage<br>
+<br>
+<textarea rows='20' cols='60' readonly>
+addEventListener('storage', (event) => {
+console.log(`The ${event.key} was updated from ${event.oldValue} to ${event.newValue} and saved in 
+${event.storageArea}`) }, false);
+</textarea><br>
+<br>
+Only strings can be saved, but by using JSON, any object can be stored in local storage:..<br>
+<br>
+<h7>Geolocation</h7>
+navigator.geolocation.getCurrentPosition(youAreHere);<br>
+<br>
+ <textarea rows='20' cols='60' readonly>
+ function youAreHere(position) {
+    console.log(`Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`); 
+}
+	
+
+</textarea><br>
+<br>
+position object<br>
+position.speed -- returns ground speed<br>
+position.altitude -- returns estimate of altitude above the WGS84 ellipsoid (center of the earth)<br>
+position.heading -- the direction the device is moving in, is a bearing in degrees clockwise from north<br>
+position.timestamp -- when the position information was recorded.<br>
+position.accuracy -- 
+position.altitudeAccuracy -- 
+watchPosition() will call a callback function every time the position of the device is updated.<br>
+clearWatch(id) -- will be used to stop the callback calling of the watch ID passed<br>
+<br>
+
+<h7>Web Workers</h7>
+Used to avoid, Script has become unresponsive<br>
+<br>
+to get started, create:<br>
+const worker = new Worker('task.js');<br>
+(parameter is other js file<br>
+<br>
+worker.postMessge(string); post message to the worker<br>
+self.postMessage(string); post message from the worker<br>
+stop worker with terminate()<br>
+worker.terminate()<br>
+or use close..<br>
+self.close()<br>
+example: <br>
+<a href="factoring.html">Example Factoring<br>
+<br>
+<a href="http://www.sitepoint.com/javascript-shared-web-workers-html5/">
+  More on Shared Web Workers here
+ </a>
+ 
+ <a href="https://serviceworke.rs/">
+  More on Service Workers here
+ </a>
+ <br>
+ <h7>Websockets</br>
+ example: <br>
+ <a href="websocket.html">WebSocket</a>
+ <br>
+ close() method will close the connection. <br>
+ error event is fired when any sort of error occurs with the connection<br>
+ <br>
+ 
 
 </body>
 </html>
