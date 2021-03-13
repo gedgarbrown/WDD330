@@ -1,0 +1,41 @@
+ <html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style> 
+	 input:invalid {
+  border: 2px dashed red;
+}
+
+input:invalid:required {
+  background-image: linear-gradient(to right, pink, lightgreen);
+}
+
+input:valid {
+  border: 2px solid black;
+}
+</style>
+	
+	<title>George Brown: WDD 330</title>
+</head>
+<body>	
+
+<h2>Required</h2>
+<form>
+  <label for="choose">Would you prefer a banana or cherry? (required)</label>
+  <input id="choose" name="i_like" required>
+  <button onclick="submitter()">Submit</button>
+</form>
+
+<div id="response"></div>
+
+</body>
+<script>
+	function submitter() {
+		//let submitted = document.getElementById("choose").value;
+		//console.log("submitted:" + submitted);
+		//document.getElementById("response").innerHTML = "You submitted: " + submitted + "<br>";
+	}
+	
+	
+	</script>
+</html>

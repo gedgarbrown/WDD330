@@ -5,9 +5,166 @@
 	<script src="../js/main.js"></script>
 	<title>George Brown: WDD 330</title>
 </head>
-<body onload="loadIndex()">	
+<body>	
 <h1>George Brown Portfolio WDD 330</h1>
 <h2>Week 10</h2>
+<h4>Client side Form Validation</h4>
+
+<p>
+<h6>What is form validation?</h6>
+Validation of any user entered data to ensure it is correct.<br>
+Can be done either client side or server side<br>
+Validation is done to ensure the right data is gathered<br>
+To protect user's data<br>
+And to protect ourselves<br>
+<br>
+
+<h6>Different types of client-side validation</h6>
+Built in form validation -- uses features from HTML5<br>
+Javascript -- uses functions from js to validate<br>
+<br>
+<h6>Using Built-in form validation</br>
+validation attributes:<br>
+required<br>
+minlength / maxlenght<br>
+min / max <br>
+type<br>
+pattern - follows a regular expression<br>
+
+CSS psuedo-class -- :valid<br>
+CSS psuedo-class -- :invalid or other classes :out-of-range<br>
+only valid can be submitted, browser will block submission of invalid<br>
+<br>
+<h6>Built-in form examples</h6>
+
+<br>HTML<br>
+<textarea rows='20' cols='60' readonly>
+ <form>
+  <label for="choose">Would you prefer a banana or cherry?</label>
+  <input id="choose" name="i_like">
+  <button>Submit</button>
+</form>
+	
+</textarea><br>
+<br>
+CSS<br>
+ <textarea rows='20' cols='60' readonly>
+ input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
+	
+</textarea><br>
+
+<br>
+<h6> The required attribute</h6>
+
+<br>HTML<br>
+<textarea rows='20' cols='60' readonly>
+ <form>
+  <label for="choose">Would you prefer a banana or cherry? (required)</label>
+  <input id="choose" name="i_like" required>
+  <button>Submit</button>
+</form>
+	
+</textarea><br>
+<br>
+CSS<br>
+ <textarea rows='20' cols='60' readonly>
+ input:invalid {
+  border: 2px dashed red;
+}
+
+input:invalid:required {
+  background-image: linear-gradient(to right, pink, lightgreen);
+}
+
+input:valid {
+  border: 2px solid black;
+}
+</textarea><br><br>
+see example: <a href="./required.html">
+Click here</a><br>
+
+
+
+<br>
+<h6>Validating using regular expression</h6>
+use 'pattern' attribute<br>
+see regular expressions here: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">
+Regular Expressions</a><br>
+<br>
+Example:<br>
+ <textarea rows='20' cols='60' readonly>
+ 
+	
+</textarea><br>
+<form>
+  <label for="choose">Would you prefer a banana or a cherry?</label>
+  <input id="choose" name="i_like" required pattern="[Bb]anana|[Cc]herry">
+  <button>Submit</button>
+</form>
+
+<h6>Constraining the length of your entries</h6>
+use attributes minlength and maxlength <br>
+<br>
+<h6>Constraining the values of your entries</h6>
+for items such as numbers, use min and max to limit the range of possible values <br>
+<a href="./constrainign.html>Constraining Values</a>
+<br>
+See full example here: <br>
+<a href="fullexample.html">Full Example</a>
+<br>
+<hr>
+<h5>Validation using Javascript</h5>
+<br>
+<h6>The constraint Validation API</h6>
+<ul>
+<li>HTMLButtonElement (represents a 'button' element)</li>
+<li>HTMLFieldSetElement (represents a 'fieldset' element)</li>
+<li>HTMLInputElement (represents an 'input' element)</li>
+<li>HTMLOutputElement (represents an 'output' element)</li>
+<li>HTMLSelectElement (represents a 'select' element)</li>
+<li>HTMLTextAreaElement (represents a 'textarea' element)</li>
+</ul>
+<br>
+Allows the following properties: 
+validationMessage -- returns localized message<br>
+validity -- returns Validity state<br>
+<br> 
+----Validity States:<br>
+----patternMismatch<br>
+----tooLong<br>
+----tooShort<br>
+----rangeOverflow<br>
+----rangeUnderflow<br>
+----typeMismatch<br>
+----valid<br>
+----valueMissing<br>
+<br>
+Methods:<br>
+checkValidity() - returns true if there are no problems<br>
+setCustomValidity(message) -- add custom error message<br>
+<br>
+<h6>Implementing customized error message</h6>
+<a href="./message.html">Custom Message example</a>
+<a href="./message.html">More Detailed example</a>
+<br>
+<br>
+<h6>Validating without using a built-in API</h6>
+Ask yourself the following:<br>
+What Kind of validation should I perform?<br>
+What should I do if the form doesn't validate?<br>
+How can I help the user to correct invalid data?<br>
+<br>
+<a href="./noapi.html">Example without using API</a>
+
+</p>
+<hr>
+<hr>
 
 
 </body>
