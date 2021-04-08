@@ -1,0 +1,252 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    background-image: radial-gradient(navy, royalblue);
+    text-align: left;
+    color: mediumblue;
+    font-size: 2vw;
+    
+}
+
+#interface {
+    margin: 2%;
+    border: solid mediumblue 3px;
+    background-color: khaki;
+}
+
+#header {
+    position: relative;
+    width: 100%;
+    height: 10%;
+}
+
+#trainerInfo {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    background-color: palegoldenrod;
+    font-size: 2vw;
+}
+
+#trainerName {
+    position: relative;
+    width: 100%;
+    font-size: medium;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    background-color: gold;
+    text-align: left;
+    color: mediumblue;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+#currentTrainer {
+    border-radius: 25px;
+    border: solid 2px goldenrod;
+    background-color: royalblue;
+    color: yellow;
+    box-shadow: 10px 5px 5px goldenrod;
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 5%;
+    text-align: center;
+}
+
+#trainerLoad {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    background-color: goldenrod;
+    text-align: center;
+}
+
+.trainerBtn {
+    background-color: mediumblue;
+    color: yellow;
+    box-shadow: 5px 2px 2px cornflowerblue;
+    width: 80%;
+    
+    min-width: 10px;
+    font-size: 1.5vw;
+
+}
+
+#opponents{
+    position: relative;
+    height: 5%;
+    padding: 1%;
+    font-size: 3vw;
+    font-weight: bold;
+    text-align: center;
+}
+
+#raceTrack {
+    position: relative;
+    height: 50%;
+    padding: 1%;
+
+}
+
+.track {
+    margin-left: 0px;
+    margin-right: 0px;
+    position: absolute;
+}
+
+#track {
+    top: 0;
+    left: 0;
+    width: 87%;
+    height: 100%;
+
+}
+
+#finish {
+    top: 0;
+    left: 87%;
+    width: 13%;
+    height: 100%;
+}
+
+#racer1 {
+    position: absolute;
+    /*top: 110;
+    left: 10;*/
+    top: 37%;
+    left: 1%;
+    border: 4px solid blue;
+}
+
+#racer2 {
+    position: absolute;
+    /*top: 205;
+    left: 10;*/
+    top: 68%;
+    left: 1%;
+    border: 4px solid red;
+}
+
+.racer {
+    transition-duration: 1s;
+	transition-timing-function: ease-out;
+	transition-delay: 50ms;  
+    width: 6%;
+    height: 17%;  
+}
+
+.questionElement {
+    transition-duration: 1s;
+	transition-timing-function: ease-out;
+	transition-delay: 50ms;   
+}
+
+#questionBar {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+    height: 30%;
+    
+}
+
+#raceControls {
+    position: relative;
+    border: solid 3px gray;
+    display: grid;
+    grid-template-rows: 1% 4% 45% 5% 45%;
+}
+
+#question {
+    position: relative;
+    border: solid 3px gray;
+    background-color:powderblue;
+
+}
+
+input {
+    margin: 2px;
+    font-size: medium;
+}
+
+#levelSelection{
+    padding: 5%;
+    width: 100%;
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+#level {
+    width: 60%;
+}
+
+#startRace{
+    background-color: green;
+    color:gold;
+    width: 80%;
+    font-size: 2vw;
+}
+
+#startBtn{
+    text-align: center;
+}
+
+#alertBox {
+    display: none;
+    position: fixed; 
+    left: 25%; 
+    top: 50%;
+    width: 50%;
+    color: red;
+    background-image: radial-gradient(white, green);
+    border-radius: 25px;
+    border: solid white 4px;
+    font-size: 2vw;
+    text-align: center;
+}
+
+  .dialog {
+    display: none;
+    position: fixed; 
+    padding-top: 50px;
+    left: 0; 
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 2vw;
+  }
+  
+  .dialogContent {
+    position: relative; 
+    background-color: lightgoldenrodyellow;
+    padding: 20px; 
+    margin: auto; 
+    width: 75%;  
+  }
+
+  .closeBtn {
+    float: right; 
+    color: lightgray; 
+    font-size: 24px;  
+    font-weight: bold;
+  }
+  .closeBtn:hover {
+    color: darkgray;
+  }
+
+  .largeText {
+      font-size: 4vw;
+      font-weight: bolder;
+  }
+
+  .mediumText {
+      font-size: 2vw;
+      font-weight: bolder;
+  }
+

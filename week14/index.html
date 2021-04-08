@@ -1,14 +1,138 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
-	<script src="../js/main.js"></script>
-	<title>George Brown: WDD 330</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<title>George Brown: PokeMath</title>
 </head>
-<body onload="loadIndex()">	
-<h1>George Brown Portfolio WDD 330</h1>
-<h2>Week 14</h2>
+<body>
+<div id="interface">	
+    <div id="header">
+        <span class="largeText">PokeMath</span>
+        <br>
+        <span class="mediumText">The Pokemon Math Race</span>
+    </div>
+    
+    <div id="trainerInfo" max-width="804px">
+        <div id="trainerName"> 
+            <div>Trainer:</div>
+            <div id="currentTrainer">*** Load or Create your Trainer ***</div>     
+            <div id="trainerStatistics">
+                <input id="showStatistics" type="button"  class="trainerBtn" value="Statistics"/>
+            </div>
+        </div>
+        <div id="trainerLoad">
+            <div><input id="createTrainer" class="trainerBtn" 
+                type="button" value="Create Trainer"/></div>
+            <div><input id="loadTrainer" class="trainerBtn" 
+                type="button" value="Load Trainer"/></div>
+        </div>
+
+    </div>
+    <div id="opponents">
+        <span id="poke1"></span>&nbsp;VS&nbsp;<span id="poke2"></span>
+    </div>
+      
+    <div id="raceTrack">
+        <img id="track" class="track" src="./images/track.jpg" width="700px" height="300"/>
+        <img id="finish" class="track" src="./images/finish.jpg" width="104px" height="300"/>
+        <img id="racer1" class="racer" src="./images/pokeball.png" width="50" height="50"/>
+        <img id="racer2" class="racer" src="./images/pokeball.png" width="50" height="50"/>
+    </div>
+    <div id="questionBar" max-width="804px">
+        <div id="raceControls">
+            <div hidden>
+                <input id="chooseQuestions" type="button"  class="trainerBtn" 
+                    value="Question Types"/>
+                <input id="selectPokemon" type="button"   class="trainerBtn" 
+                    value="Select Pokemon"/>
+            </div>
+            <div></div>
+            <div id="levelSelection">
+                Level: <input id="level"  type="range" min="1" max="100" value="50">
+            </div>
+            <div></div>
+            <div id="startBtn">
+                <input id="startRace" type="button" value="Start New Race"/>
+            </div>
+           
+        </div>
+       <div id="question">
+            <span id="questionText" class="questionElement"></span>
+            <br>
+            <input id="questionReply"  class="questionElement" type="test" pattern="/d" 
+                size="4" max="4" hidden/>
+            <input id="submitQuestion"  class="questionElement" 
+                type="button" value="Submit Response" hidden/>
+        </div>
+    </div>
+</div>
+   
+
+    <div id="createTrainerDialog" class="dialog">
+        <div id="createTrainerHeader">
+            <span class="closeBtn" id="trainerClose">&times;</span>
+        </div>
+    
+        <div id="createTrainerForm" class="dialogContent">
+            <div id="trainerForm">
+                Name: <input id="newName" type="text"/>
+                <input id="trainerSubmit" type="button" value="Create Trainer"/>
+            </div>
+            
 
 
+
+        </div>
+    </div>
+
+    <div id="loadTrainerDialog" class="dialog">
+        <div id="loadTrainerHeader">
+            <span class="closeBtn" id="trainerClose">&times;</span>
+        </div>
+    
+        <div id="loadTrainerForm" class="dialogContent">
+            <div id="trainerForm">
+                Select Trainer: <select name="selectTrainer" id="selectTrainer">
+                    </select>
+                <input id="loadSubmit" type="button" value="Load Trainer"/>
+            </div>
+            
+
+
+
+        </div>
+    </div>
+
+    <div id="statistics" class="dialog">
+        <div id="statisticsHeader">
+            <span class="closeBtn">&times;</span>
+        </div>
+        <div id="stats" class="dialogContent"></div>
+
+        
+    </div>
+
+    <div id="pokemonDialog" class="dialog">
+        <div id="pokemonHeader">
+            <span class="closeBtn">&times;</span>
+        </div>
+     
+
+        </div>
+    </div>
+
+    <div id="questionTypesDialog"  class="dialog">
+        <div id="questionsHeader">
+            <span class="closeBtn">&times;</span>
+        </div>
+       
+
+        </div>
+    </div>
+   
+    <div id="alertBox"></div>
+   
+    <script type="module" src="./js/main.js"></script>
 </body>
+
 </html>
